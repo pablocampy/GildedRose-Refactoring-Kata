@@ -8,7 +8,8 @@ namespace GildedRoseTests
     {
         [Theory]
         [InlineData(50, 49)]
-        [InlineData(25, 24)]
+        [InlineData(49, 48)]
+        [InlineData(2, 1)]
         [InlineData(1, 0)]
         [InlineData(0, 0)]
         public void BasicItem_UpdateQualityOnce_QualityIsCorrectValue(int startingQuality, int expectedQuality)
@@ -27,7 +28,7 @@ namespace GildedRoseTests
 
         [Theory]
         [InlineData(50, 48)]
-        [InlineData(25, 23)]
+        [InlineData(49, 47)]
         [InlineData(3, 1)]
         [InlineData(2, 0)]
         [InlineData(1, 0)]
