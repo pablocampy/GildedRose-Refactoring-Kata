@@ -2,7 +2,7 @@
 {
     public class SulfurasUpdateStrategy : IItemUpdateStrategy
     {
-        public void UpdateQuality(Item item)
+        public void Update(Item item)
         {
             item.Quality = 80;
         }

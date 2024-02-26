@@ -1,18 +1,23 @@
-﻿namespace GildedRoseKata.Strategies
+﻿using GildedRoseKata.Extensions;
+
+namespace GildedRoseKata.Strategies
 {
     public class AgedBrieUpdateStrategy : IItemUpdateStrategy
     {
-        public void UpdateQuality(Item item)
+        public void Update(Item item)
         {
-            if (item.SellIn > 0)
-            {
-                item.SellIn -= 1;
-            }
+            item.SellIn -= 1;
 
-            if (item.Quality < 50)
+            if (item.SellIn < 0)
+            {
+                item.Quality += 2;
+            }
+            else
             {
                 item.Quality += 1;
             }
+
+            item.EnsureValidValues();
         }
     }
 }

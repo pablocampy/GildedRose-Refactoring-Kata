@@ -1,6 +1,4 @@
-﻿using GildedRoseKata.Extensions;
-
-namespace GildedRoseKata.Strategies
+﻿namespace GildedRoseKata.Strategies
 {
     public class StrategyContext 
     {
@@ -37,7 +35,7 @@ namespace GildedRoseKata.Strategies
 
         public void ExecuteStrategy(Item item)
         {
-            _itemUpdateStrategy.UpdateQuality(item);
+            _itemUpdateStrategy.Update(item);
         }
     }
 }

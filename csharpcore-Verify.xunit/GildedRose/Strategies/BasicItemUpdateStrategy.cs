@@ -4,23 +4,20 @@ namespace GildedRoseKata.Strategies
 {
     public class BasicItemUpdateStrategy : IItemUpdateStrategy
     {
-        public void UpdateQuality(Item item)
+        public void Update(Item item)
         {
-            if (item.SellIn > 0)
-            {
-                item.SellIn -= 1;
-            }
-
             if (item.SellIn > 0)
             {
                 item.Quality -= 1;
             }
-            else if (item.SellIn == 0)
+            else if (item.SellIn <= 0)
             {
-                item.SellIn -= 2;
+                item.Quality -= 2;
             }
 
-            item.EnsureNoNegativeQuality();
+            item.SellIn -= 1;
+
+            item.EnsureValidValues();
         }
     }
 }
