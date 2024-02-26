@@ -23,7 +23,7 @@ namespace GildedRoseKata.Strategies
             }
             else if (name.ToLower().Contains(SULFURAS_STRING_MATCHER))
             {
-                _itemUpdateStrategy = new BackstagePassUpdateStrategy();
+                _itemUpdateStrategy = new SulfurasUpdateStrategy();
             }
             else if (name.ToLower().Contains(CONJURED_STRING_MATCHER))
             {
