@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata.Strategies
+﻿using GildedRoseKata.Extensions;
+
+namespace GildedRoseKata.Strategies
 {
     public class StrategyContext 
     {
@@ -11,21 +13,25 @@
 
         public StrategyContext(string name)
         {
-            if (name.Contains(AGED_BRIE_STRING_MATCHER))
+            if (name.ToLower().Contains(AGED_BRIE_STRING_MATCHER))
             {
                 _itemUpdateStrategy = new AgedBrieUpdateStrategy();
             }
-            else if (name.Contains(BACKSTAGE_PASS_STRING_MATCHER))
+            else if (name.ToLower().Contains(BACKSTAGE_PASS_STRING_MATCHER))
             {
                 _itemUpdateStrategy = new BackstagePassUpdateStrategy();
             }
-            else if (name.Contains(SULFURAS_STRING_MATCHER))
+            else if (name.ToLower().Contains(SULFURAS_STRING_MATCHER))
             {
                 _itemUpdateStrategy = new BackstagePassUpdateStrategy();
             }
-            else if (name.Contains(CONJURED_STRING_MATCHER))
+            else if (name.ToLower().Contains(CONJURED_STRING_MATCHER))
             {
                 _itemUpdateStrategy = new ConjuredItemUpdateStrategy();
+            }
+            else
+            {
+                _itemUpdateStrategy = new BasicItemUpdateStrategy();
             }
         }
 
