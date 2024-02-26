@@ -66,6 +66,26 @@ namespace GildedRoseTests
             Assert.Equal(expectedQuality, Items[0].Quality);
         }
 
+        [Theory]
+        [InlineData(50, 50)]
+        [InlineData(49, 50)]
+        [InlineData(48, 50)]
+        [InlineData(1, 3)]
+        [InlineData(0, 2)]
+        public void AgedBrieWithSellByDatePassed_UpdateQualityOnce_QualityIsCorrectValue(int startingQuality, int expectedQuality)
+        {
+            IList<Item> Items = new List<Item> {
+                new Item {
+                    Name = "Aged Brie",
+                    SellIn = 0,
+                    Quality = startingQuality
+                }
+            };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.Equal(expectedQuality, Items[0].Quality);
+        }
+
         [Fact]
         public void SulfurasHandOfRagnaros_UpdateQualityOnce_QualityIsCorrectValue()
         {
