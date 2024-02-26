@@ -137,5 +137,47 @@ namespace GildedRoseTests
             app.UpdateQuality();
             Assert.Equal(expectedQuality, Items[0].Quality);
         }
+
+        [Theory]
+        [InlineData(50, 48)]
+        [InlineData(49, 47)]
+        [InlineData(3, 1)]
+        [InlineData(2, 0)]
+        [InlineData(1, 0)]
+        [InlineData(0, 0)]
+        public void ConjuredItem_UpdateQualityOnce_QualityIsCorrectValue(int startingQuality, int expectedQuality)
+        {
+            IList<Item> Items = new List<Item> {
+                new Item {
+                    Name = "Conjured",
+                    SellIn = 10,
+                    Quality = startingQuality
+                }
+            };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.Equal(expectedQuality, Items[0].Quality);
+        }
+
+        [Theory]
+        [InlineData(50, 46)]
+        [InlineData(49, 45)]
+        [InlineData(5, 1)]
+        [InlineData(4, 0)]
+        [InlineData(1, 0)]
+        [InlineData(0, 0)]
+        public void ConjuredItemWithSellByDatePassed_UpdateQualityOnce_QualityIsCorrectValue(int startingQuality, int expectedQuality)
+        {
+            IList<Item> Items = new List<Item> {
+                new Item {
+                    Name = "Conjured",
+                    SellIn = 0,
+                    Quality = startingQuality
+                }
+            };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.Equal(expectedQuality, Items[0].Quality);
+        }
     }
 }
