@@ -57,7 +57,7 @@ namespace GildedRoseTests
             IList<Item> Items = new List<Item> {
                 new Item {
                     Name = "Aged Brie",
-                    SellIn = 10,
+                    SellIn = 1,
                     Quality = startingQuality
                 }
             };
@@ -92,7 +92,7 @@ namespace GildedRoseTests
             IList<Item> Items = new List<Item> {
                 new Item {
                     Name = "Sulfuras, Hand of Ragnaros",
-                    SellIn = 10,
+                    SellIn = 1,
                     Quality = 80
                 }
             };
@@ -170,7 +170,7 @@ namespace GildedRoseTests
             IList<Item> Items = new List<Item> {
                 new Item {
                     Name = "Conjured",
-                    SellIn = 10,
+                    SellIn = 1,
                     Quality = startingQuality
                 }
             };
