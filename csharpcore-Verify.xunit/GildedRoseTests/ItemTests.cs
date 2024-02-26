@@ -17,7 +17,7 @@ namespace GildedRoseTests
             IList<Item> Items = new List<Item> { 
                 new Item { 
                     Name = "foo", 
-                    SellIn = 10, 
+                    SellIn = 1, 
                     Quality = startingQuality 
                 } 
             };
