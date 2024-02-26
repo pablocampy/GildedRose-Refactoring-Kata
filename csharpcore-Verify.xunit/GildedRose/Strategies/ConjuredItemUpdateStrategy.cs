@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata.Strategies
+﻿using GildedRoseKata.Extensions;
+
+namespace GildedRoseKata.Strategies
 {
     public class ConjuredItemUpdateStrategy : IItemUpdateStrategy
     {
@@ -17,6 +19,8 @@
             {
                 item.SellIn -= 4;
             }
+
+            item.EnsureNoNegativeQuality();
         }
     }
 }
